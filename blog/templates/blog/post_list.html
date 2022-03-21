@@ -8,16 +8,20 @@
             <h1><a href="/">Django Blog</a></h1>
         </header>
 
+    {% for post in posts %}
         <article>
-            <time>published: 21.03.2022, 3:12 PM</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Allot had been done this week!.</p>
+            <time>published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}.</p>
         </article>
-
+    {% endfor %}
+   
+    {% for post in posts %}
         <article>
-            <time>published: 21.3.2022, 3:13 PM 12:14</time>
-            <h2><a href="">My second post</a></h2>
-            <p>More blogging just for content</p>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}.</p>
         </article>
+    {% endfor %}
     </body>
 </html>
